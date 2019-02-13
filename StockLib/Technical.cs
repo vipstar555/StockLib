@@ -14,7 +14,7 @@ namespace StockLib
         }
         //移動平均用の価格IEnumerableの作成
         //価格が無い日(null)は直近の値を返す
-        public IEnumerable<double?> nullPrice(IEnumerable<double?> prices)
+        public IEnumerable<double?> NullToLatestPrice(IEnumerable<double?> prices)
         {
             var latestPrice = prices.FirstOrDefault();
             foreach (var price in prices)
