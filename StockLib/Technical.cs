@@ -8,10 +8,20 @@ namespace StockLib
 {
     public class Technical
     {
+        //移動平均の作成
         public IEnumerable<double?> MovingAverage(IEnumerable<double?> prices, int span)
         {
             return null;
         }
+        //テクニカル作成用のspan分IEnumerable作成
+        public static IEnumerable<IEnumerable<double?>> EachCons<T>(IEnumerable<double?> prices, int span)
+        {
+            for (int i = 0; i <= prices.Count() - span; i++)
+            {
+                yield return prices.Skip(i).Take(span);
+            }
+        }
+
         //移動平均用の価格IEnumerableの作成
         //価格が無い日(null)は直近の値を返す
         public IEnumerable<double?> NullToLatestPrice(IEnumerable<double?> prices)
