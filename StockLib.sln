@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockLib", "StockLib\StockLib.csproj", "{B5D43989-FFAA-454A-9378-7EFDDD917B11}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockLibTestPattern", "StockLibTestPattern\StockLibTestPattern.csproj", "{C0D66626-EDFF-4CBF-BE63-2FF39BE49885}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,9 @@ Global
 		{B5D43989-FFAA-454A-9378-7EFDDD917B11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5D43989-FFAA-454A-9378-7EFDDD917B11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5D43989-FFAA-454A-9378-7EFDDD917B11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0D66626-EDFF-4CBF-BE63-2FF39BE49885}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0D66626-EDFF-4CBF-BE63-2FF39BE49885}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0D66626-EDFF-4CBF-BE63-2FF39BE49885}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
