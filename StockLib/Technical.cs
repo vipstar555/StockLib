@@ -8,6 +8,8 @@ namespace StockLib
 {
     public class Technical
     {
+        //TRの計算
+
         //移動平均の作成
         static public IEnumerable<double?> MovingAverage(IEnumerable<double?> prices, int span)
         {
