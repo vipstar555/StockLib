@@ -11,10 +11,12 @@ namespace StockLibTestPattern
         static void Main(string[] args)
         {
             //テクニカルテスト
-            TestTechnical();
+            //TestTechnical();
+            //分割併合テスト
+            TestBunkatuHeigou.Test();
             Console.Read();
         }
-
+        //テクニカルクラステスト
         static private void TestTechnical()
         {
             List<double?> testList = new List<double?>()
