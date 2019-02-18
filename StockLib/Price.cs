@@ -13,6 +13,35 @@ namespace StockLib
         {
             return mae / ato;
         }
+        //double?配列で返す分割併合対応
+        static public IEnumerable<double?> DoubleBunkatuHeigou(Dictionary<DateTime, double?> dicPrices, Dictionary<DateTime, double> dicBunkatuHeigouCorrections = null)
+        {
+            //null又はデータが空の場合、補正値1.0で返す
+            if (dicBunkatuHeigouCorrections == null || dicBunkatuHeigouCorrections.Count == 0)
+            {
+                foreach (var price in dicPrices)
+                {
+                    yield return price.Value;
+                }
+            }
+            //分割・併合補正処理
+            else
+            {
+                foreach (var price in dicPrices)
+                {
+                    var correct = 1.0;
+                    foreach (var correction in dicBunkatuHeigouCorrections)
+                    {
+                        //分割併合の適用日以前なら補正値を掛ける
+                        if (price.Key < correction.Key)
+                        {
+                            correct = correct * correction.Value;
+                        }
+                    }
+                    yield return price.Value * correct;
+                }
+            }
+        }                
         //分割併合適応(補正値は分割前)
         static public IEnumerable<BunkatuHeigouPrice> BunkatuHeigou(Dictionary<DateTime, double?> dicPrices , Dictionary<DateTime, double> dicBunkatuHeigouCorrections = null)
         {
