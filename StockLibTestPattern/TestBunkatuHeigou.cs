@@ -35,10 +35,17 @@ namespace StockLibTestPattern
             {
                 Console.WriteLine($"{item.Datetime} {item.Price} {item.Correction}");
             }
+            Console.WriteLine("");
             foreach (var item in testb)
             {
                 Console.WriteLine($"{item.Datetime} {item.Price} {item.Correction}");
             }
+            Console.WriteLine("");
+            foreach (var item in StockLib.Price.DoubleBunkatuHeigou(dicPrices, dicHeigouBunkatu))
+            {
+                Console.WriteLine($"{item}");
+            }
+            Console.WriteLine("");
         }
     }
 }
