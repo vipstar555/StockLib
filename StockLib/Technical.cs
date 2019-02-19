@@ -8,7 +8,30 @@ namespace StockLib
 {
     public class Technical
     {
-        //TRの計算
+        //TRの計算(日付を全部合わせて入れる)
+        static public IEnumerable<double?> TR(IEnumerable<double?> highPrices, IEnumerable<double?> lowPrices, IEnumerable<double?> lateClosePrices)
+        {
+            var highs = highPrices.ToList();
+            var lows = lowPrices.ToList();
+            var lateCloses = lateClosePrices.ToList();
+
+            for (int i = 0; i < highs.Count(); i++)
+            {
+                if (highs[i] == null || lows[i] == null || lateCloses[i] == null)
+                {
+                    yield return null;
+                    continue;
+                }
+
+                var TRList = new List<double?>
+                {
+                    highs[i] - lows[i],
+                    highs[i] - lateCloses[i],
+                    lateCloses[i] - lows[i]
+                };
+                yield return TRList.Max();
+            }
+        }
 
         //移動平均の作成
         static public IEnumerable<double?> MovingAverage(IEnumerable<double?> prices, int span)
