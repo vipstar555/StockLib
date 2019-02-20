@@ -8,6 +8,24 @@ namespace StockLib
 {
     public class Technical
     {
+        //取引比率
+        static public IEnumerable<double?> TorihikiHiritu(IEnumerable<long> volumes, IEnumerable<long> outstandingStock)
+        {
+            if (volumes.Count() != outstandingStock.Count())
+            {
+                yield return null;
+            }
+            else
+            {
+                var _volumes = volumes.ToList();
+                var _outstandingStock = outstandingStock.ToList();
+                for (int i = 0; i < _volumes.Count(); i++)
+                {
+                    yield return _volumes[i] / _outstandingStock[i];
+                }
+            }            
+        }
+
         //TRの計算(日付を全部合わせて入れる)
         static public IEnumerable<double?> TR(IEnumerable<double?> highPrices, IEnumerable<double?> lowPrices, IEnumerable<double?> lateClosePrices)
         {
