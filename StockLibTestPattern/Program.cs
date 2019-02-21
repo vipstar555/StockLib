@@ -11,9 +11,10 @@ namespace StockLibTestPattern
         static void Main(string[] args)
         {
             //テクニカルテスト
-            //TestTechnical();
+            TestTechnical();
             //分割併合テスト
-            TestBunkatuHeigou.Test();
+            //TestBunkatuHeigou.Test();
+
             Console.Read();
         }
         //テクニカルクラステスト
@@ -47,6 +48,33 @@ namespace StockLibTestPattern
                     Console.WriteLine(aa);
                 }                
             }
+            Console.WriteLine();
+            //区間高値の確認
+            foreach (var high in StockLib.Technical.SpanHighPrice(testList, 5))
+            {
+                if (high == null)
+                {
+                    Console.WriteLine("null");
+                }
+                else
+                {
+                    Console.WriteLine(high);
+                }
+            }
+            Console.WriteLine();
+            //区間安値の確認
+            foreach (var low in StockLib.Technical.SpanLowPrice(testList, 5))
+            {
+                if (low == null)
+                {
+                    Console.WriteLine("null");
+                }
+                else
+                {
+                    Console.WriteLine(low);
+                }
+            }
+            Console.WriteLine();
         }
     }
 }

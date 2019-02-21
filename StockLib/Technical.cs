@@ -8,6 +8,34 @@ namespace StockLib
 {
     public class Technical
     {
+        //区間高値
+        static public IEnumerable<double?> SpanHighPrice(IEnumerable<double?> highPrices, int span)
+        {
+            //最初の足りない分はnullを返す
+            for (int i = 0; i < span - 1; i++)
+            {
+                yield return null;
+            }
+            //区間高値を返す
+            foreach (var spanHighPrices in EachCons(highPrices, span))
+            {
+                yield return spanHighPrices.Max();
+            }
+        }
+        //区間安値
+        static public IEnumerable<double?> SpanLowPrice(IEnumerable<double?> lowPrices, int span)
+        {
+            //最初の足りない分はnullを返す
+            for (int i = 0; i < span - 1; i++)
+            {
+                yield return null;
+            }
+            //区間安値を返す
+            foreach (var spanLowPrices in EachCons(lowPrices, span))
+            {
+                yield return spanLowPrices.Min();
+            }
+        }
         //取引比率
         static public IEnumerable<double?> TorihikiHiritu(IEnumerable<long> volumes, IEnumerable<long> outstandingStock)
         {
